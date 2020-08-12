@@ -2,6 +2,7 @@
 const chatList = document.querySelector('.chat-list');
 const newChatForm = document.querySelector('.new-chat');
 const newNameForm = document.querySelector('.new-name');
+const updateMssg = document.querySelector('.update-mssg');
 
 //add a new chat
 newChatForm.addEventListener('submit', e => {
@@ -17,13 +18,15 @@ newNameForm.addEventListener('submit', e => {
     e.preventDefault();
 
     //update name via chatroom
-    const newName = newChatForm.name.value.trim();
+    const newName = newNameForm.name.value.trim();
     chatroom.updateName(newName);
 
     //reset the form
     newNameForm.reset();
 
-    
+    //show then hide the update mssg
+    updateMssg.innerText = `Your name was updated to ${newName}.`;
+    setTimeout(() => updateMssg.innerText = '', 3000);
 });
 
 //class instances
