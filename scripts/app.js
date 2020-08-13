@@ -29,9 +29,13 @@ newNameForm.addEventListener('submit', e => {
     setTimeout(() => updateMssg.innerText = '', 3000);
 });
 
-//class instances
+//check local storage for a name
+const username = localStorage.username ? localStorage.username : 'anon';
+
+
+//class instances1
 const chatUI = new ChatUI(chatList);
-const chatroom = new Chatroom('general', 'Oscar');
+const chatroom = new Chatroom('general', username);
 
 //get chats & render
 chatroom.getChats(data => chatUI.render(data));
